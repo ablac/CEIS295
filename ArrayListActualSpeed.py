@@ -7,7 +7,6 @@ from ArrayList import ArrayList
 from Client import Client
 from Quicksort import Quicksort
 from datetime import date
-
 import time     # Used to time code executions
 import random   # Used to generate random numbers
 import sys      # Used to Terminate application early
@@ -20,11 +19,16 @@ Records_Display = 1000 # How many records to display in random search
 Records_Add = 1000 # How many records to add
 Records_Remove = 1000 # How many records to remove
 sort = True # Sort The Records?
+print_records = False # Set to true to display all record updates, False to just display times.
 
-# Display Name and Date in output
-
+# Display Program Information
 print ("Name:", name)
-print ("Date :", date.today)
+print ("Date :", date.today())
+print ("Display Records:", print_records)
+print ("Sorted:", sort)
+print ("Records to Add:", Records_Add)
+print ("Records to Remove:", Records_Remove)
+print ("Records to Display", Records_Display)
 
 clients = []
 
@@ -99,10 +103,11 @@ start_time = time.time()
 for i in range(Records_Display):
   largest_id = smallest_id + num_records
   ran_number = random.randint(smallest_id, largest_id)
-  if sort == True:
-    print ( my_array_list.search_sorted(Client(ran_number)))
-  else:
-    print ( my_array_list.search(Client(ran_number)))
+  if print_records == True:
+    if sort == True:
+      print ( my_array_list.search_sorted(Client(ran_number)))
+    else:
+      print ( my_array_list.search(Client(ran_number)))
 
 end_time = time.time()
 total_time = end_time - start_time
@@ -113,7 +118,7 @@ if answer.lower() != "y":
   sys.exit()
   
 #Scenario 3: Call Center
-section_title = "Scenario: Call Center"
+section_title = "-Scenario: Call Center-"
 print ("-" * len(section_title))
 print(section_title)
 print ("-" * len(section_title))
@@ -130,18 +135,20 @@ num_records = len(clients)
 for i in range(Records_Display):
   largest_id = smallest_id + num_records
   ran_number = random.randint(smallest_id, largest_id)
-  if sort == True:
-    print ( my_array_list.search_sorted(Client(ran_number)))
-  else:
-    print ( my_array_list.search(Client(ran_number)))
+  if print_records == True:
+    if sort == True:
+      print ( my_array_list.search_sorted(Client(ran_number)))
+    else:
+      print ( my_array_list.search(Client(ran_number)))
 
 for i in range(Records_Remove):
   largest_id = smallest_id + num_records
   random_num = random.randint(smallest_id, largest_id)
-  if sort == True:
-    print ( my_array_list.search_sorted(Client(ran_number)))
-  else:
-    print ( my_array_list.search(Client(ran_number)))
+  if print_records == True:
+    if sort == True:
+      print ( my_array_list.search_sorted(Client(ran_number)))
+    else:
+      print ( my_array_list.search(Client(ran_number)))
 
 end_time = time.time()
 total_time = end_time - start_time
