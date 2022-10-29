@@ -26,5 +26,5 @@ total_time = end_time - start_time
 # Show the result.  Note: .6f means “show six decimal places”
 print("\nSeconds to run " + str(loops) + " times: {:.6f}".format(total_time))
 
-print ("Returning to mainm menu")
+print ("Returning to maim menu")
 import main
