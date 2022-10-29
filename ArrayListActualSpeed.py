@@ -19,11 +19,20 @@ Records_Display = 1000 # How many records to display in random search
 Records_Add = 1000 # How many records to add
 Records_Remove = 1000 # How many records to remove
 sort = True # Sort The Records?
-print_records = False # Set to true to display all record updates, False to just display times.
+print_records = True # Set to true to display all record updates, False to just display times.
 
 # Display Program Information
 print ("Name:", name)
 print ("Date :", date.today())
+
+answer = input("Sort Records (Y/n)? ")
+if answer.lower() != "y":
+  sort = False
+
+answer = input("Display Records (Y/n)? ")
+if answer.lower() != "y":
+  print_records = False
+  
 print ("Display Records:", print_records)
 print ("Sorted:", sort)
 print ("Records to Add:", Records_Add)
