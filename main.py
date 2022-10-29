@@ -8,8 +8,6 @@ import os
 def start():
   # User Menu
   print ("Insert 1 for TimeProcess")
-  print ("Insert 2 for ArrayList")
-  print ("Insert 3 for QuickSort")
   print ("Insert C to clear console")
   print ("Insert E to exit")
   
@@ -22,10 +20,6 @@ def start():
   # Run Selected Process
   if select == "1":
     import TimeProcess
-  elif select == "2":
-    import ArrayList
-  elif select == "3":
-    import QuickSort
 
   # Clear Console.
   elif select == "C":
