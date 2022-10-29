@@ -39,4 +39,24 @@ with open(CSVFile) as infile:
     # Add the client object to list
     clients.append(clt)
 
+# How many client objects?
+num_records = len(clients)
 
+# create an arraylist object
+my_array_list = ArrayList()
+
+# Scenario 1: Printer Queue, Call Queue, or Service Queue (line)
+section_title = "-Scenario: Printer Queue-"
+print ("-" * len(section_title))
+print(section_title)
+print ("-" * len(section_title))
+
+#how long does it take to add client records?
+start_time = time.time()
+
+for i in range(num_records):
+  my_array_list.append(clients[i])
+
+end_time = time.time()
+total_time = end_time - start_time
+print ("Seconds to add", str(num_records),"records: {:.6f}".format(total_time))
