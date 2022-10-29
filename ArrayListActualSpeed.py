@@ -21,28 +21,31 @@ Records_Remove = 1000 # How many records to remove
 sort = True # Sort The Records?
 print_records = True # Set to true to display all record updates, False to just display times.
 
-NE2 = "n" # Letter to not continue, or to set settings to false.
-S1 = "-Scenario: Printer Queue or Call Queue or Service Queue-"
-S2 = "-Scenario: Customer Service Center-"
-S3 = "-Scenario: Call Center-"
+NE2 = "n" # Letter to not continue, or to set settings to false anything else will continue.
+S1 = "-Scenario: Printer Queue or Call Queue or Service Queue-" # Scenario 1 Name
+S2 = "-Scenario: Customer Service Center-" # Scenario 2 Name
+S3 = "-Scenario: Call Center-" # Scenario 3 Name
 
-# Display Program Information
-print ("Name:", name)
-print ("Date :", date.today())
-
-answer = input("Sort Records (Default True) (Y/n)? ")
+# Settings for the Scenarios
+answer = input("Sort Records (Default True) (Y/n)? ") # Sort the results?
 if answer.lower() == NE2:
   sort = False
 
-answer = input("Display Records (Default True) (Y/n)? ")
+answer = input("Display Records (Default True) (Y/n)? ") # Display the Records?
 if answer.lower() == NE2:
   print_records = False
 
 if print_records == True:
-  Records_Display = int(input("Number to Display (Default 1000)? ") or "1000")
-  Records_Add = int(input("Number to Add (Default 1000)? ") or "1000")
-  Records_Remove = int(input("Number to Remove (Default 1000)? ") or "1000")
-  
+  Records_Display = int(input("Number to Display (Default 1000)? ") or "1000") # How many to display?
+
+Records_Add = int(input("Number to Add (Default 1000)? ") or "1000") # How many to Add?
+
+Records_Remove = int(input("Number to Remove (Default 1000)? ") or "1000") # How many to remove?
+
+# Display Program Information
+print ()
+print ("Name:", name)
+print ("Date :", date.today())
 print ("Display Records:", print_records)
 print ("Sorted:", sort)
 print ("Records to Add:", Records_Add)
@@ -51,10 +54,11 @@ print ("Records to Display", Records_Display)
 
 clients = []
 def Continue():
-  answer = input("Continue (Y/n)? ")
+  answer = input("Continue (Y/n)? " or "y")
   if answer.lower() == NE2:
     sys.exit()
-    
+
+Continue()
 # Read records from Clientdata.csv
 with open(CSVFile) as infile:
   for line in infile:
