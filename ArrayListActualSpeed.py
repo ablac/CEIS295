@@ -21,17 +21,27 @@ Records_Remove = 1000 # How many records to remove
 sort = True # Sort The Records?
 print_records = True # Set to true to display all record updates, False to just display times.
 
+NE2 = "n" # Letter to not continue, or to set settings to false.
+S1 = "-Scenario: Printer Queue or Call Queue or Service Queue-"
+S2 = "-Scenario: Customer Service Center-"
+S3 = "-Scenario: Call Center-"
+
 # Display Program Information
 print ("Name:", name)
 print ("Date :", date.today())
 
-answer = input("Sort Records (Y/n)? ")
-if answer.lower() != "y":
+answer = input("Sort Records (Default True) (Y/n)? ")
+if answer.lower() == NE2:
   sort = False
 
-answer = input("Display Records (Y/n)? ")
-if answer.lower() != "y":
+answer = input("Display Records (Default True) (Y/n)? ")
+if answer.lower() == NE2:
   print_records = False
+
+if print_records == True:
+  Records_Display = int(input("Number to Display (Default 1000)? ") or "1000")
+  Records_Add = int(input("Number to Add (Default 1000)? ") or "1000")
+  Records_Remove = int(input("Number to Remove (Default 1000)? ") or "1000")
   
 print ("Display Records:", print_records)
 print ("Sorted:", sort)
@@ -40,7 +50,11 @@ print ("Records to Remove:", Records_Remove)
 print ("Records to Display", Records_Display)
 
 clients = []
-
+def Continue():
+  answer = input("Continue (Y/n)? ")
+  if answer.lower() == NE2:
+    sys.exit()
+    
 # Read records from Clientdata.csv
 with open(CSVFile) as infile:
   for line in infile:
@@ -68,10 +82,9 @@ num_records = len(clients)
 my_array_list = ArrayList()
 
 # Scenario 1: Scenario: Printer Queue or Call Queue or Service Queue
-section_title = "-Scenario: Printer Queue or Call Queue or Service Queue-"
-print ("-" * len(section_title))
-print(section_title)
-print ("-" * len(section_title))
+print ("-" * len(S1))
+print(S1)
+print ("-" * len(S1))
 
 #how long does it take to add client records?
 start_time = time.time()
@@ -93,15 +106,12 @@ end_time = time.time()
 total_time = end_time - start_time
 print ("Seconds to remove records from front: {:.6f}".format(total_time))
 
-answer = input("Continue (y/n)? ")
-if answer.lower() != "y":
-  sys.exit()
+Continue()
 
 #Scenario 2: Customer Service Center
-section_title = "-Scenario: Customer Service Center-"
-print ("-" * len(section_title))
-print(section_title)
-print ("-" * len(section_title))
+print ("-" * len(S2))
+print(S2)
+print ("-" * len(S2))
 
 for i in range(num_records):
   my_array_list.append(clients[i])
@@ -122,15 +132,12 @@ end_time = time.time()
 total_time = end_time - start_time
 print ("Seconds to pick", str(Records_Display),"random records: {:.6f}".format(total_time))
 
-answer = input("Continue (y/n)? ")
-if answer.lower() != "y":
-  sys.exit()
+Continue()
   
 #Scenario 3: Call Center
-section_title = "-Scenario: Call Center-"
-print ("-" * len(section_title))
-print(section_title)
-print ("-" * len(section_title))
+print ("-" * len(S3))
+print(S3)
+print ("-" * len(S3))
 
 #how long does it take to add records randomly, and randomly display and remove records?
 start_time = time.time()
