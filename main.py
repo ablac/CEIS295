@@ -1,3 +1,8 @@
+# Name: Keith V Swoger
+# School : DeVry University
+# Course: CEIS 295
+# Date:  10/29/2022
+
 import os
 
 def start():
@@ -36,7 +41,8 @@ def start():
     print("Invalid Entry")
     start()
 
-# Run Program.    
-start()
+# Run Program. 
+if __name__ == "__main__":
+  start()
     
   
