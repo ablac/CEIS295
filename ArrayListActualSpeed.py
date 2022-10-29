@@ -19,6 +19,7 @@ smallest_id = 100001 # Client ID Starting Point
 Records_Display = 1000 # How many records to display in random search
 Records_Add = 1000 # How many records to add
 Records_Remove = 1000 # How many records to remove
+sort = True # Sort The Records?
 
 # Display Name and Date in output
 
@@ -43,6 +44,10 @@ with open(CSVFile) as infile:
     # Add the client object to list
     clients.append(clt)
 
+# Sort the clients list
+if sort == True:
+  Quicksort.sort(clients)
+  
 # How many client objects?
 num_records = len(clients)
 
@@ -94,7 +99,10 @@ start_time = time.time()
 for i in range(Records_Display):
   largest_id = smallest_id + num_records
   ran_number = random.randint(smallest_id, largest_id)
-  print ( my_array_list.search(Client(ran_number)))
+  if sort == True:
+    print ( my_array_list.search_sorted(Client(ran_number)))
+  else:
+    print ( my_array_list.search(Client(ran_number)))
 
 end_time = time.time()
 total_time = end_time - start_time
@@ -122,12 +130,18 @@ num_records = len(clients)
 for i in range(Records_Display):
   largest_id = smallest_id + num_records
   ran_number = random.randint(smallest_id, largest_id)
-  print ( my_array_list.search(Client(ran_number)))
+  if sort == True:
+    print ( my_array_list.search_sorted(Client(ran_number)))
+  else:
+    print ( my_array_list.search(Client(ran_number)))
 
 for i in range(Records_Remove):
   largest_id = smallest_id + num_records
   random_num = random.randint(smallest_id, largest_id)
-  print ( my_array_list.search(Client(ran_number)))
+  if sort == True:
+    print ( my_array_list.search_sorted(Client(ran_number)))
+  else:
+    print ( my_array_list.search(Client(ran_number)))
 
 end_time = time.time()
 total_time = end_time - start_time
