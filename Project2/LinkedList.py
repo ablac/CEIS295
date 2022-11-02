@@ -1,9 +1,9 @@
 # Name: Keith V Swoger
 # School : DeVry University
 # Course: CEIS 295
-# Date:  10/29/2022
+# Date:  11/1/2022
 
-from Node import Node
+from Project2.Node import Node
 
 class LinkedList:
     def __init__(self):
@@ -141,17 +141,21 @@ class LinkedList:
     def remove(self, data):
         # Special case, empty list so nothing to remove
         if self.__head == None:
-            return       # end the method
-        
+            return None       # end the method
+
+        # Create a variable for the return value
+        result = None
+          
         # Special case, head node has data
         if self.__head.data == data:
+            result = self.__head.data
             if self.__head.next == None:  # single node only
                 self.__head == None 
                 self.__tail == None
             else:
                 self.__head = self.__head.next   # use second node as head
  
-            return        # end the method
+            return result       # end the method
             
         # traverse the list and find the NODE BEFORE the index
         temp = self.__head 
@@ -161,8 +165,11 @@ class LinkedList:
             parent = temp 
             temp = temp.next 
             if temp.data == data:
+                result = temp.data
                 parent.next = temp.next # delete the node by overwriting the parent's next
                 break     # end the loop
+
+        return result
 		
     def search(self, data):
         if self.__head == None:
