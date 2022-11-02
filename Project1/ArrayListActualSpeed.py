@@ -13,7 +13,7 @@ import sys      # Used to Terminate application early
 
 # Variables
 name = "Keith V Swoger" # Authors Name
-CSVFile = 'Project1/ClientData.csv' # Client Data.csv
+CSVFile = 'Data/P1_CD.csv' # Client Data.csv
 smallest_id = 100001 # Client ID Starting Point
 Records_Display = 1000 # How many records to display in random search
 Records_Add = 1000 # How many records to add
@@ -57,7 +57,7 @@ def Continue():
   if answer.lower() == NE2:
     sys.exit()
 
-Continue()
+Continue() ########################################## END SETTINGS
 # Read records from Clientdata.csv
 with open(CSVFile) as infile:
   for line in infile:
@@ -109,7 +109,7 @@ end_time = time.time()
 total_time = end_time - start_time
 print ("Seconds to remove all records from front: {:.6f}".format(total_time))
 
-Continue()
+Continue() ########################################## END SCENARIO 1
 
 #Scenario 2: Customer Service Center
 print ("-" * len(S2))
@@ -139,7 +139,7 @@ end_time = time.time()
 total_time = end_time - start_time
 print ("Seconds to pick", str(Records_Display),"random records: {:.6f}".format(total_time))
 
-Continue()
+Continue() ########################################## END SCENARIO 2
   
 #Scenario 3: Call Center
 print ("-" * len(S3))
@@ -153,25 +153,32 @@ current_id = smallest_id + num_records + 1
 for i in range(Records_Add):
   my_array_list.append(Client(current_id))
   current_id += 1
+  
 num_records = len(clients)
 
 for i in range(Records_Display):
   largest_id = smallest_id + num_records
   ran_number = random.randint(smallest_id, largest_id)
+  
   if print_records == True:
     if sort == True:
       print ( my_array_list.search_sorted(Client(ran_number)))
     else:
       print ( my_array_list.search(Client(ran_number)))
-
+  else:
+    if sort == True:
+      my_array_list.search_sorted(Client(ran_number))
+    else:
+      my_array_list.search(Client(ran_number))
+      
 for i in range(Records_Remove):
   largest_id = smallest_id + num_records
   random_num = random.randint(smallest_id, largest_id)
+  
   if print_records == True:
-    if sort == True:
-      print ( my_array_list.search_sorted(Client(ran_number)))
-    else:
-      print ( my_array_list.search(Client(ran_number)))
+    print ( my_array_list.remove(Client(ran_number)))
+  else:
+    my_array_list.remove(Client(ran_number))
 
 end_time = time.time()
 total_time = end_time - start_time

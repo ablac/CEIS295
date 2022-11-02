@@ -13,7 +13,7 @@ import sys      # Used to Terminate application early
 
 # Variables
 name = "Keith V Swoger" # Authors Name
-CSVFile = 'Project1/ClientData.csv' # Client Data.csv
+CSVFile = 'Data/P2_CD.csv' # Client Data.csv
 smallest_id = 100001 # Client ID Starting Point
 Records_Display = 1000 # How many records to display in random search
 Records_Add = 1000 # How many records to add
@@ -129,6 +129,8 @@ for i in range(Records_Display):
   ran_number = random.randint(smallest_id, largest_id)
   if print_records == True:
     print ( my_linked_list.search(Client(ran_number)))
+  else:
+    my_linked_list.search(Client(ran_number))
 
 end_time = time.time()
 total_time = end_time - start_time
@@ -157,6 +159,8 @@ for i in range(Records_Display):
   ran_number = random.randint(smallest_id, largest_id)
   if print_records == True:
     print ( my_linked_list.search(Client(ran_number)))
+  else:
+    my_linked_list.search(Client(ran_number))
 
 # Remove Random Records
 for i in range(Records_Remove):
@@ -164,6 +168,8 @@ for i in range(Records_Remove):
   random_num = random.randint(smallest_id, largest_id)
   if print_records == True:
     print ( my_linked_list.remove(Client(ran_number)))
+  else:
+    my_linked_list.remove(Client(ran_number))
 
 # Calculate Time
 end_time = time.time()
