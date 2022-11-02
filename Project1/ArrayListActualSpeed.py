@@ -4,7 +4,7 @@
 # Date:  10/29/2022
 
 from Project1.ArrayList import ArrayList
-from Project1.Client import Client
+from Shared.Client import Client
 from Project1.Quicksort import Quicksort
 from datetime import date
 import time     # Used to time code executions

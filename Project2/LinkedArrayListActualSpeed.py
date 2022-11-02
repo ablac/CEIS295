@@ -4,8 +4,7 @@
 # Date:  11/1/2022
 
 from Project2.LinkedList import LinkedList
-from Project1.Client import Client
-# from Project1.Quicksort import Quicksort
+from Shared.Client import Client
 from datetime import date
 import time     # Used to time code executions
 import random   # Used to generate random numbers
