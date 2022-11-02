@@ -1,3 +1,8 @@
+# Name: Keith V Swoger
+# School : DeVry University
+# Course: CEIS 295
+# Date:  10/29/2022
+
 class ArrayList:
     def __init__(self, size=10):
         self.__array = [None] * size

@@ -9,6 +9,7 @@ def start():
   # User Menu
   print ("Insert 1 for TimeProcess")
   print ("Insert 2 for ArrayListActualSpeed")
+  print ("Insert 3 for LinkedArrayListActualSpeed")
   print ("Insert C to clear console")
   print ("Insert E to exit")
   
@@ -20,9 +21,11 @@ def start():
   
   # Run Selected Process
   if select == "1":
-    import TimeProcess
+    import TimeProcess.TimeProcess
   elif select == "2":
-    import ArrayListActualSpeed
+    import Project1.ArrayListActualSpeed
+  elif select == "3":
+    import Project2.LinkedArrayListActualSpeed
 
   # Clear Console.
   elif select == "C":

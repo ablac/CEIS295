@@ -3,9 +3,9 @@
 # Course: CEIS 295
 # Date:  10/29/2022
 
-from ArrayList import ArrayList
-from Client import Client
-from Quicksort import Quicksort
+from Project1.ArrayList import ArrayList
+from Project1.Client import Client
+from Project1.Quicksort import Quicksort
 from datetime import date
 import time     # Used to time code executions
 import random   # Used to generate random numbers
@@ -13,7 +13,7 @@ import sys      # Used to Terminate application early
 
 # Variables
 name = "Keith V Swoger" # Authors Name
-CSVFile = 'ClientData.csv' # Client Data.csv
+CSVFile = 'Project1/ClientData.csv' # Client Data.csv
 smallest_id = 100001 # Client ID Starting Point
 Records_Display = 1000 # How many records to display in random search
 Records_Add = 1000 # How many records to add
@@ -35,8 +35,7 @@ answer = input("Display Records (Default True) (Y/n)? ") # Display the Records?
 if answer.lower() == NE2:
   print_records = False
 
-if print_records == True:
-  Records_Display = int(input("Number to Display (Default 1000)? ") or "1000") # How many to display?
+Records_Display= int(input("Number to Display (Default 1000)? ") or "1000") # How many to display?
 
 Records_Add = int(input("Number to Add (Default 1000)? ") or "1000") # How many to Add?
 
@@ -98,7 +97,7 @@ for i in range(num_records):
 
 end_time = time.time()
 total_time = end_time - start_time
-print ("Seconds to add", str(num_records),"records: {:.6f}".format(total_time))
+print ("Seconds to add all", str(num_records),"records from file: {:.6f}".format(total_time))
 
 #How long does it take to remove records from the front of the Array List
 start_time = time.time()
@@ -108,7 +107,7 @@ for i in range(num_records):
 
 end_time = time.time()
 total_time = end_time - start_time
-print ("Seconds to remove records from front: {:.6f}".format(total_time))
+print ("Seconds to remove all records from front: {:.6f}".format(total_time))
 
 Continue()
 
@@ -131,7 +130,11 @@ for i in range(Records_Display):
       print ( my_array_list.search_sorted(Client(ran_number)))
     else:
       print ( my_array_list.search(Client(ran_number)))
-
+  else:
+     if sort == True:
+       my_array_list.search_sorted(Client(ran_number))
+     else:
+       my_array_list.search(Client(ran_number))
 end_time = time.time()
 total_time = end_time - start_time
 print ("Seconds to pick", str(Records_Display),"random records: {:.6f}".format(total_time))
