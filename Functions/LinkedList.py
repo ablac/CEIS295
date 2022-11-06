@@ -3,7 +3,7 @@
 # Course: CEIS 295
 # Date:  11/1/2022
 
-from Project2.Node import Node
+from Functions.Node import Node
 
 class LinkedList:
     def __init__(self):

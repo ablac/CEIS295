@@ -3,8 +3,8 @@
 # Course: CEIS 295
 # Date:  11/1/2022
 
-from Project2.LinkedList import LinkedList
-from Shared.Client import Client
+from Functions.LinkedList import LinkedList
+from Functions.Client import Client
 from datetime import date
 import time     # Used to time code executions
 import random   # Used to generate random numbers

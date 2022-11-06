@@ -3,9 +3,9 @@
 # Course: CEIS 295
 # Date:  10/29/2022
 
-from Project1.ArrayList import ArrayList
-from Shared.Client import Client
-from Project1.Quicksort import Quicksort
+from Functions.ArrayList import ArrayList
+from Functions.Client import Client
+from Functions.Quicksort import Quicksort
 from datetime import date
 import time     # Used to time code executions
 import random   # Used to generate random numbers
