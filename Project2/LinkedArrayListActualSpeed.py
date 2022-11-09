@@ -12,7 +12,7 @@ import sys      # Used to Terminate application early
 
 # Variables
 name = "Keith V Swoger" # Authors Name
-CSVFile = 'Data/P2_CD.csv' # Client Data.csv
+CSVFile = 'Data/P2_Clients.csv' # Client Data.csv
 smallest_id = 100001 # Client ID Starting Point
 Records_Display = 1000 # How many records to display in random search
 Records_Add = 1000 # How many records to add
@@ -32,11 +32,11 @@ answer = input("Display Records (Default True) (Y/n)? ") # Display the Records?
 if answer.lower() == NE2:
   print_records = False
 
-Records_Display= int(input("Number to Display (Default 1000)? ") or "1000") # How many to display?
+Records_Display= int(input(f"Number to Display (Default {Records_Display})? ") or f"{Records_Display}") # How many to display?
 
-Records_Add = int(input("Number to Add (Default 1000)? ") or "1000") # How many to Add?
+Records_Add = int(input(f"Number to Add (Default {Records_Add})? ") or f"{Records_Add}") # How many to Add?
 
-Records_Remove = int(input("Number to Remove (Default 1000)? ") or "1000") # How many to remove?
+Records_Remove = int(input(f"Number to Remove (Default {Records_Remove})? ") or f"{Records_Remove}") # How many to remove?
 
 # Display Program Information
 print ()

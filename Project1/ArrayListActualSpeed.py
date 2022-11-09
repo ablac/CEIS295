@@ -13,7 +13,7 @@ import sys      # Used to Terminate application early
 
 # Variables
 name = "Keith V Swoger" # Authors Name
-CSVFile = 'Data/P1_CD.csv' # Client Data.csv
+CSVFile = 'Data/P1_Clients.csv' # Client Data.csv
 smallest_id = 100001 # Client ID Starting Point
 Records_Display = 1000 # How many records to display in random search
 Records_Add = 1000 # How many records to add
