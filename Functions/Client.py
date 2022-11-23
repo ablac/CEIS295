@@ -1,7 +1,7 @@
 # Name: Keith V Swoger
 # School : DeVry University
 # Course: CEIS 295
-# Date:  11/14/2022
+# Date:  11/22/2022
 
 class Client:
   def __init__(self, client_id=0, first_name="Unknown", last_name="Unknown", phone="Unknown", email="Unknown"):
@@ -13,10 +13,14 @@ class Client:
 
   #classes that compare object, must implement __eq__ Method and __lt__ method
   #__lt__ = Less Than and must return a Boolean
+  #__le__ = Less Than or Equal to and must return a Boolean
   #__eq__ = equals to and must return a boolean
   def __lt__(self, other):
     return self.__client_id < other.__client_id
 
+  def __le__(self, other):
+    return self.__client_id <= other.__client_id
+  
   def __eq__(self, other):
     return self.__client_id == other.__client_id
 

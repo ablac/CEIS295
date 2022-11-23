@@ -7,18 +7,25 @@ import os
 
 def start():
   # User Menu
+  print()
+  print ("---------------------PROJECTS---------------------")
   print ("Insert 1 for ArrayListActualSpeed (Project 1)")
   print ("Insert 2 for LinkedArrayListActualSpeed (Project 2)")
   print ("Insert 3 for AutomatciCallDistributor (Project 3)")
-  print ("Insert 4 for SortingActualSpeeds (Project 3)")
+  print ("Insert 4 for SortingActualSpeeds (Project 4)")
+  print ("Insert 5 for SearchingActualSpeeds (Project 5)")
+  print ()
+  print ("----------------------EXTRAS----------------------")
   print ("Insert T for TimeProcess")
   print ("Insert M for MainForStack")
   print ("Insert S for Square")
   print ("Insert G for Pong")
   print ("Insert C for Circle")
+  print ()
+  print ("------------------MENU CONTROLS-------------------")
   print ("Insert Clear to clear console")
   print ("Insert E to exit")
-  
+  print ()
   # Request Input
   select = input("Select Process: ")
   
@@ -38,6 +45,9 @@ def start():
   elif select == "4":
     os.system('clear')
     import Project4.SortingActualSpeeds
+  elif select == "5":
+    os.system('clear')
+    import Project5.SearchingActualSpeeds
     
   # Extra Programs
   elif select == "T":

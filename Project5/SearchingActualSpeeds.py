@@ -4,33 +4,44 @@
 # Date:  11/14/2022
 
 from Functions.Sort import *
-from Functions.ClientP4 import Client
+from Functions.Client import Client
 from Functions.Default import Continue
 from datetime import date
 import time     # Used to time code executions
 import os
+import random
 
 def main():
   # Variables
   name = "Keith V Swoger" # Authors Name
   CSVFile = ['Data/Clients100.csv','Data/Clients1000.csv','Data/Clients10000.csv','Data/Clients100000.csv']
-  file = 0 # Selects which CSV File to openOpens 100 clients by default
-  Sorting = ['BubbleSort','SelectionSort','InsertionSort','ShellSort','QuickSort','MergeSort']
+  Searching = ['LinearSearch','BinarySearch']
   size = ['100','1,000','10,000','100,000']
-  print_records = False
+
+  # Defaults
+  print_records = False 
+  answer = "N"
+  search = 1000
+  file = 0 # Selects which CSV File to openOpens 100 clients by default
+  selection = 0 # Selects which search to use by default
+  start_record = 100001
   #----------------------------
   #----------SETTINGS----------
   #----------------------------
   
   print (f"0 for {size[0]}\n1 for {size[1]}\n2 for {size[2]}\n3 for {size[3]}")
-  file = int((input(f"Select number of records to sort? (Default {size[0]}) ") or "0"))
+  file = int((input(f"Select number of records to sort? (Default {size[file]}) ") or file))
   os.system('clear')
   
-  print (f"0 for {Sorting[0]}\n1 for {Sorting[1]}\n2 for {Sorting[2]}\n3 for {Sorting[3]}\n4 for {Sorting[4]}\n5 for {Sorting[0]}")
-  selection = int((input(f"Select sort type? (Default {Sorting[0]}) ") or "0"))
+  print (f"0 for {Searching[0]}\n1 for {Searching[1]}")
+  selection = int((input(f"Select sort type? (Default {Searching[selection]}) ") or selection))
+  os.system('clear')
+
+  print ("How many search's do you want to preform?")
+  search = int((input(f"Number of searches? (Default {search}) ") or search))
   os.system('clear')
   
-  answer = input("Display Records (Default True) (y/N)? " or "N") 
+  answer = input(f"Display Records (N/y) (Default {answer})? " or answer) 
   if answer.lower() == "y":
     print_records = True
   os.system('clear')
@@ -40,7 +51,7 @@ def main():
   print ("Name:", name)
   print ("Date :", date.today())
   print (f"Sorting file {size[file]}")
-  print (f"Sorting type {Sorting[selection]}")
+  print (f"Sorting type {Searching[selection]}")
   print (f"Display Records set to {print_records}")
   print ()
   
@@ -67,47 +78,55 @@ def main():
       clients.append(clt)
   
   #----------------------------
-  #---------SORTING------------
+  #---------SEARCHING_---------
   #----------------------------
       
   # Scenario Sorting Records from a datafile.
   num_records = len(clients)
-  S1 = "-Scenario: Sorting " + str(num_records) + " Records"
+  end_record = start_record + num_records
+  S1 = f"-Scenario: Searching for {search} random records within {str(num_records)} records"
   print ("-" * len(S1))
   print(S1)
   print ("-" * len(S1))
   
   Continue()
+
+  # Must sort data before searching with Binary
+  if selection == 1:
+    QuickSort.sort(clients)
+    print("Completed Quicksort of data.")
+    Continue()
   
   start_time = time.time()
   
-  #call the static sort method in the class
-  if selection == 0:
-    BubbleSort.sort(clients)
-  elif selection == 1:
-    SelectionSort.sort(clients)
-  elif selection == 2:
-    InsertionSort.sort(clients)
-  elif selection == 3:
-    ShellSort.sort(clients)
-  elif selection == 4:
-    QuickSort.sort(clients)
-  elif selection == 5:
-    MergeSort.sort(clients)
+  #call the static search method in the class
+  for i in range(search):
+    client_id = random.randint(start_record, end_record)
+    clt = Client(client_id)
+
+    #Linear Search Function
+    if selection == 0:
+      result = LinearSearch.search(clients, clt)
+    elif selection == 1:
+      result = BinarySearch.search(clients, clt)
+    else:
+      break
+
+    if print_records == True:  
+      if result is None:
+        print(clt, "was not found.")
+      else:
+        print(result)
   
   end_time =time.time()
   total_time = end_time - start_time
-  
-  if print_records == True:  
-    for clt in clients:
-      print(clt)
       
-  print(f"Seconds to sort {num_records} records: {total_time} using {Sorting[selection]} sorting method")
+  print(f"Seconds to search {search} random records: {total_time} using {Searching[selection]} method")
   
   Continue()
   os.system('clear')
 
 while True:
   main()
-  if input("Would you like to run another test? (Y/N)" ).strip().upper() == 'N':
+  if input("Would you like to run another test? (Y/n)" ).strip().upper() == 'N':
     break

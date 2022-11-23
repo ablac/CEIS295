@@ -3,7 +3,7 @@
 # Course: CEIS 295
 # Date:  10/29/2022
 
-from Functions.Stack import Stack
+from Functions.Lists import Stack
 
 # create the Stack and add some items
 num_stack = Stack()

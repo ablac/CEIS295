@@ -13,12 +13,18 @@ class Client:
 
   #classes that compare object, must implement __eq__ Method and __lt__ method
   #__lt__ = Less Than and must return a Boolean
+  #__le__ = Less Than or Equal to and must return a Boolean
   #__eq__ = equals to and must return a boolean
   def __lt__(self, other):
     this_full_name = self.__last_name + " " + self.__first_name
     other_full_name = other.__last_name + " " + other.__first_name
     return this_full_name < other_full_name
 
+  def __le__(self, other):
+    this_full_name = self.__last_name + " " + self.__first_name
+    other_full_name = other.__last_name + " " + other.__first_name
+    return this_full_name <= other_full_name
+  
   def __eq__(self, other):
     return self.__client_id == other.__client_id
 

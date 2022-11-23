@@ -3,11 +3,13 @@
 # Course: CEIS 295
 # Date:  11/8/2022
 
-from Functions.Queue import Queue
+from Functions.Lists import Queue
 from Functions.Call import Call
+from Functions.Default import Continue
 from datetime import date
 import time     # Used to pause the application
 import random   # Used to generate random number
+import os
 
 def main():
   # Defaults
@@ -24,11 +26,6 @@ def main():
   
   # Create lists
   calls = []
-  
-  print ()
-  print ("Name:", name)
-  print ("Date :", date.today())
-  print ("\n")
   
   with open (CSVFile) as infile:
     for line in infile:
@@ -51,9 +48,13 @@ def main():
   if reps <= 1:
     reps = 1
   reps = int(input(f"How many representatives do you want to simulate? (Default {reps}) ") or f"{reps}")
+  os.system('clear')
   sleeptime = int(input(f"How long between simulated seconds? (Default {sleeptime}) ") or f"{sleeptime}")
+  os.system('clear')
   seconds = int(input(f"How many seconds do you want to simulate? (Default {seconds}) ") or f"{seconds}")
+  os.system('clear')
   answer = int(input(f"Random number max, higher = larger queue (Default {rand}) ") or f"{rand}")
+  os.system('clear')
   min = int(input(f"Random Number min, 1 or lower = less queue. (Default {min}) ") or f"{min}")
             
   if min >= 2:
@@ -63,10 +64,18 @@ def main():
     print (f"Random Max must be greater then 3 defaulting to {rand}")
   else:
     rand = answer
-    
+  os.system('clear')
+
+  print ()
+  print ("Name:", name)
+  print ("Date :", date.today())
+  print ()
+  
   print(f"Running simulation {seconds} times with spacing of {sleeptime} seconds and a random number maxing out at {rand} and {reps} representaive(s) on the phones.")
   rand = rand + reps - 1
   num = 1 + reps
+
+  Continue()
   
   # Run the simulation for the given number of times
   for i in range(seconds):
@@ -100,8 +109,10 @@ def main():
       print ("\tNumber of calls waiting in Queue", calls_waiting.get_length())
   
   print("\n The Automatic Call Distributor simulation has completed.")
-
+  Continue()
+  
 while True:
   main()
+  os.system('clear')
   if input("Would you like to run another test? (Y/N)" ).strip().upper() == 'N':
     break

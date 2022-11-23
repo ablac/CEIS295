@@ -3,13 +3,14 @@
 # Course: CEIS 295
 # Date:  10/29/2022
 
-from Functions.ArrayList import ArrayList
+from Functions.Lists import ArrayList
 from Functions.Client import Client
-from Functions.Sort import Quicksort
+from Functions.Sort import QuickSort
 from datetime import date
+from Functions.Default import Continue
 import time     # Used to time code executions
 import random   # Used to generate random numbers
-import sys      # Used to Terminate application early
+import os
 
 def main():
   # Variables
@@ -22,25 +23,30 @@ def main():
   sort = True # Sort The Records?
   print_records = True # Set to true to display all record updates, False to just display times.
   
-  NE2 = "n" # Letter to not continue, or to set settings to false anything else will continue.
   S1 = "-Scenario: Printer Queue or Call Queue or Service Queue-" # Scenario 1 Name
   S2 = "-Scenario: Customer Service Center-" # Scenario 2 Name
   S3 = "-Scenario: Call Center-" # Scenario 3 Name
-  
+  os.system('clear')
   # Settings for the Scenarios
+  
   answer = input("Sort Records (Default True) (Y/n)? ") # Sort the results?
-  if answer.lower() == NE2:
+  if answer.lower() == "N":
     sort = False
+  os.system('clear')
   
   answer = input("Display Records (Default True) (Y/n)? ") # Display the Records?
-  if answer.lower() == NE2:
+  if answer.lower() == "N":
     print_records = False
+  os.system('clear')
   
   Records_Display= int(input("Number to Display (Default 1000)? ") or "1000") # How many to display?
+  os.system('clear')
   
   Records_Add = int(input("Number to Add (Default 1000)? ") or "1000") # How many to Add?
+  os.system('clear')
   
   Records_Remove = int(input("Number to Remove (Default 1000)? ") or "1000") # How many to remove?
+  os.system('clear')
   
   # Display Program Information
   print ()
@@ -53,10 +59,6 @@ def main():
   print ("Records to Display", Records_Display)
   
   clients = []
-  def Continue():
-    answer = input("Continue (Y/n)? " or "y")
-    if answer.lower() == NE2:
-      sys.exit()
   
   Continue() ########################################## END SETTINGS
   # Read records from Clientdata.csv
@@ -77,7 +79,7 @@ def main():
   
   # Sort the clients list
   if sort == True:
-    Quicksort.sort(clients)
+    QuickSort.sort(clients)
     
   # How many client objects?
   num_records = len(clients)
@@ -177,15 +179,17 @@ def main():
     random_num = random.randint(smallest_id, largest_id)
     
     if print_records == True:
-      print ( my_array_list.remove(Client(ran_number)))
+      print ( my_array_list.remove(Client(random_num)))
     else:
-      my_array_list.remove(Client(ran_number))
+      my_array_list.remove(Client(random_num))
   
   end_time = time.time()
   total_time = end_time - start_time
   print ("Seconds to add", str(Records_Add),"records, Display", str(Records_Display),"records, and Remove",str(Records_Remove),"Records: {:.6f}".format(total_time))
+  Continue()
 
 while True:
   main()
+  os.system('clear')
   if input("Would you like to run another test? (Y/N)" ).strip().upper() == 'N':
     break
