@@ -6,11 +6,12 @@
 from Functions.Sort import QuickSort
 from Functions.Search import LinearSearch, BinarySearch
 from Functions.Client import Client
-from Functions.Default import Continue
+from Functions.Default import Continue, TTime
 from datetime import date
 import time, os, random      # Used to time code executions
 
 def main():
+  os.system('clear')
   # Variables
   name = "Keith V Swoger" # Authors Name
   CSVFile = ['Data/Clients100.csv','Data/Clients1000.csv','Data/Clients10000.csv','Data/Clients100000.csv']
@@ -118,14 +119,13 @@ def main():
         print(result)
   
   end_time =time.time()
-  total_time = end_time - start_time
       
-  print(f"Seconds to search {search} random records: {total_time} using {Searching[selection]} method")
+  print(f"Seconds to search {search} random records: {TTime(start_time, end_time)} using {Searching[selection]} method")
   
   Continue()
-  os.system('clear')
 
 while True:
   main()
+  os.system('clear')
   if input("Would you like to run another test? (Y/n)" ).strip().upper() == 'N':
     break

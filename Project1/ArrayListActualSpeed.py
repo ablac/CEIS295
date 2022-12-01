@@ -7,10 +7,11 @@ from Functions.Lists import ArrayList
 from Functions.Client import Client
 from Functions.Sort import QuickSort
 from datetime import date
-from Functions.Default import Continue
+from Functions.Default import Continue, TTime
 import time, random, os
 
 def main():
+  os.system('clear')
   # Variables
   name = "Keith V Swoger" # Authors Name
   CSVFile = 'Data/P1_Clients.csv' # Client Data.csv
@@ -98,7 +99,7 @@ def main():
   
   end_time = time.time()
   total_time = end_time - start_time
-  print ("Seconds to add all", str(num_records),"records from file: {:.6f}".format(total_time))
+  print (f"Seconds to add all {num_records} records from file: {TTime(start_time, end_time)}")
   
   #How long does it take to remove records from the front of the Array List
   start_time = time.time()
@@ -108,7 +109,7 @@ def main():
   
   end_time = time.time()
   total_time = end_time - start_time
-  print ("Seconds to remove all records from front: {:.6f}".format(total_time))
+  print (f"Seconds to remove all records from front: {TTime(start_time, end_time)}")
   
   Continue() ########################################## END SCENARIO 1
   
@@ -138,7 +139,7 @@ def main():
          my_array_list.search(Client(ran_number))
   end_time = time.time()
   total_time = end_time - start_time
-  print ("Seconds to pick", str(Records_Display),"random records: {:.6f}".format(total_time))
+  print (f"Seconds to pick {Records_Display} random records: {TTime(start_time, end_time)}")
   
   Continue() ########################################## END SCENARIO 2
     
@@ -183,11 +184,11 @@ def main():
   
   end_time = time.time()
   total_time = end_time - start_time
-  print ("Seconds to add", str(Records_Add),"records, Display", str(Records_Display),"records, and Remove",str(Records_Remove),"Records: {:.6f}".format(total_time))
+  print ("Seconds to add {Records_Add} records, Display {Records_Display} records, and Remove {Records_Remove} Records: {TTime(start_time, end_time)}")
   Continue()
 
 while True:
   main()
   os.system('clear')
-  if input("Would you like to run another test? (Y/N)" ).strip().upper() == 'N':
+  if input("Would you like to run another test? (Y/n)" ).strip().upper() == 'N':
     break

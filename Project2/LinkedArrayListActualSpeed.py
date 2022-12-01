@@ -6,10 +6,11 @@
 from Functions.Lists import LinkedList
 from Functions.Client import Client
 from datetime import date
-from Functions.Default import Continue
+from Functions.Default import Continue, TTime
 import time, random, os
 
 def main():
+  os.system('clear')
   # Variables
   name = "Keith V Swoger" # Authors Name
   CSVFile = 'Data/P2_Clients.csv' # Client Data.csv
@@ -97,8 +98,7 @@ def main():
   Add_List()
   
   end_time = time.time()
-  total_time = end_time - start_time
-  print ("Seconds to add all", str(num_records),"records from file: {:.6f}".format(total_time))
+  print (f"Seconds to add all {num_records},records from file: {TTime(start_time, end_time)}")
   
   # How long does it take to remove records from the front of the Linked List
   start_time = time.time()
@@ -108,7 +108,7 @@ def main():
   
   end_time = time.time()
   total_time = end_time - start_time
-  print ("Seconds to remove all records from front: {:.6f}".format(total_time))
+  print (f"Seconds to remove all records from front: {TTime(start_time, end_time)}")
   
   Continue() ########################################## END SCENARIO 1
   
@@ -133,7 +133,7 @@ def main():
   
   end_time = time.time()
   total_time = end_time - start_time
-  print ("Seconds to pick", str(Records_Display),"random records: {:.6f}".format(total_time))
+  print (f"Seconds to pick {Records_Display} random records: {TTime(start_time, end_time)}")
   
   Continue() ########################################## END SCENARIO 2
     
@@ -175,6 +175,7 @@ def main():
   total_time = end_time - start_time
   print ("Seconds to add", str(Records_Add),"records, Display", str(Records_Display),"records, and Remove",str(Records_Remove),"Records: {:.6f}".format(total_time))
   Continue()
+  print (f"Seconds to add {Records_Add} records, Display {Records_Display} records, and remove {Records_Remove} records: {TTime(start_time, end_time)}")
 
 while True:
   main()

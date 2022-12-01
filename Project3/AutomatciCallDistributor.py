@@ -10,6 +10,7 @@ from datetime import date
 import time, random, os
 
 def main():
+  os.system('clear')
   # Defaults
   name = "Keith V Swoger"           # Authors Name
   CSVFile = 'Data/P3_Clients.csv'   # Client Data.csv

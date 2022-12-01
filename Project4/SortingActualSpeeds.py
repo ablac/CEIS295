@@ -5,11 +5,12 @@
 
 from Functions.Sort import BubbleSort, SelectionSort, InsertionSort, ShellSort, QuickSort, MergeSort
 from Functions.Client import ClientP4 as Client
-from Functions.Default import Continue
+from Functions.Default import Continue, TTime
 from datetime import date
 import time, os     # Used to time code executions
 
 def main():
+  os.system('clear')
   # Variables
   name = "Keith V Swoger" # Authors Name
   CSVFile = ['Data/Clients100.csv','Data/Clients1000.csv','Data/Clients10000.csv','Data/Clients100000.csv']
@@ -95,18 +96,16 @@ def main():
     MergeSort.sort(clients)
   
   end_time =time.time()
-  total_time = end_time - start_time
   
   if print_records == True:  
     for clt in clients:
       print(clt)
       
-  print(f"Seconds to sort {num_records} records: {total_time} using {Sorting[selection]} sorting method")
-  
+  print(f"Seconds to sort {num_records} records: {TTime(start_time, end_time)} using {Sorting[selection]} sorting method")
   Continue()
-  os.system('clear')
 
 while True:
   main()
+  os.system('clear')
   if input("Would you like to run another test? (Y/N)" ).strip().upper() == 'N':
     break

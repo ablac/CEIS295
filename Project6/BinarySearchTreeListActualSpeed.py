@@ -10,6 +10,7 @@ from Functions.Search import BinarySearchTree as BST
 from Functions.Default import Continue, TTime
 
 def main():
+  os.system('clear')
   # Settings
   name = "Keith V Swoger" # Authors Name
   CSVFile = 'Data/P6_Clients.csv'
@@ -169,9 +170,11 @@ def main():
   end_time = time.time()
   print(f"Seconds to add {rec_add} records, display {rec_disp} records")
   print(f"and delete {rec_del} records: {TTime(start_time, end_time)}")
-  print()
+
+  Continue()
   
 while True:
   main()
+  os.system('clear')
   if input("Would you like to run another test? (Y/n)" ).strip().upper() == 'N':
     break
