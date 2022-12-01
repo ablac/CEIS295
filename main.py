@@ -14,6 +14,7 @@ def start():
   print ("Insert 3 for AutomatciCallDistributor (Project 3)")
   print ("Insert 4 for SortingActualSpeeds (Project 4)")
   print ("Insert 5 for SearchingActualSpeeds (Project 5)")
+  print ("Insert 6 for BinarySearchTreeListActualSpeed (Project 6)")
   print ()
   print ("----------------------EXTRAS----------------------")
   print ("Insert T for TimeProcess")
@@ -48,6 +49,9 @@ def start():
   elif select == "5":
     os.system('clear')
     import Project5.SearchingActualSpeeds
+  elif select == "6":
+    os.system('clear')
+    import Project6.BinarySearchTreeListActualSpeed
     
   # Extra Programs
   elif select == "T":

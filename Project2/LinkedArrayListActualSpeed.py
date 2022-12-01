@@ -7,9 +7,7 @@ from Functions.Lists import LinkedList
 from Functions.Client import Client
 from datetime import date
 from Functions.Default import Continue
-import time     # Used to time code executions
-import random   # Used to generate random numbers
-import os
+import time, random, os
 
 def main():
   # Variables

@@ -3,12 +3,11 @@
 # Course: CEIS 295
 # Date:  11/14/2022
 
-from Functions.Sort import *
-from Functions.ClientP4 import Client
+from Functions.Sort import BubbleSort, SelectionSort, InsertionSort, ShellSort, QuickSort, MergeSort
+from Functions.Client import ClientP4 as Client
 from Functions.Default import Continue
 from datetime import date
-import time     # Used to time code executions
-import os
+import time, os     # Used to time code executions
 
 def main():
   # Variables

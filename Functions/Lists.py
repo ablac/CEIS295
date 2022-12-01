@@ -1,13 +1,17 @@
 # Name: Keith V Swoger
 # School : DeVry University
 # Course: CEIS 295
-# Date:  11/14/2022
+# Date:  11/30/2022
 
 class Node:
     def __init__(self, initial_data=None):
         self.data = initial_data
         self.next = None
-      
+class NodeP6:
+	def __init__(self, data):
+		self.data = data
+		self.left = None
+		self.right = None      
 class LinkedList:
     def __init__(self):
         self.__head = None

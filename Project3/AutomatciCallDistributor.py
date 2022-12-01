@@ -7,14 +7,12 @@ from Functions.Lists import Queue
 from Functions.Call import Call
 from Functions.Default import Continue
 from datetime import date
-import time     # Used to pause the application
-import random   # Used to generate random number
-import os
+import time, random, os
 
 def main():
   # Defaults
   name = "Keith V Swoger"           # Authors Name
-  CSVFile = 'Data/P3_Calls.csv'     # Client Data.csv
+  CSVFile = 'Data/P3_Clients.csv'   # Client Data.csv
   call_number = 0                   # Number of calls waiting
   sleeptime = 2                     # Time for the application to sleep
   seconds = 20                      # Number of times to run the simulation

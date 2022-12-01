@@ -11,3 +11,7 @@ def Continue():
   if answer.lower() == "n":
     sys.exit()
   print()
+
+def TTime(Start, End):
+  Total_Time = End - Start
+  return round(Total_Time, 6)

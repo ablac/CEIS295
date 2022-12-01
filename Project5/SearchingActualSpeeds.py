@@ -3,13 +3,12 @@
 # Course: CEIS 295
 # Date:  11/14/2022
 
-from Functions.Sort import *
+from Functions.Sort import QuickSort
+from Functions.Search import LinearSearch, BinarySearch
 from Functions.Client import Client
 from Functions.Default import Continue
 from datetime import date
-import time     # Used to time code executions
-import os
-import random
+import time, os, random      # Used to time code executions
 
 def main():
   # Variables
@@ -104,7 +103,7 @@ def main():
     client_id = random.randint(start_record, end_record)
     clt = Client(client_id)
 
-    #Linear Search Function
+    #Search Function
     if selection == 0:
       result = LinearSearch.search(clients, clt)
     elif selection == 1:
