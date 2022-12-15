@@ -7,7 +7,7 @@ import time, random, os
 from datetime import date
 from Functions.Client import ClientP6 as Client
 from Functions.Search import BinarySearchTree as BST
-from Functions.Default import Continue, TTime, Title
+from Functions.Default import Continue, TTime, Title, Open
 
 
 def main():
@@ -60,20 +60,8 @@ def main():
   clients = []
 
   # Open, Read, and Assign CSV File
-  with open(CSVFile) as infile:
-    for line in infile:
-      s = line.split(',')
-      client_id = int(s[0])
-      f_name = s[1]
-      l_name = s[2]
-      phone = s[3]
-      email = s[4]
-      
-      # Create Client object
-      clt = Client(client_id, f_name, l_name, phone, email)
-      # Add the client object to list
-      clients.append(clt)
-
+  Open(CSVFile, clients, Client)
+  
   # Count Records
   num_records = len(clients)
 

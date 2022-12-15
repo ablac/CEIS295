@@ -4,7 +4,7 @@
 # Date:  11/14/2022
 
 import sys
-from Functions.Client import Client
+
 
 def Continue():
   print()
@@ -18,12 +18,14 @@ def TTime(Start, End):
   Total_Time = End - Start
   return round(Total_Time, 6)
 
+
 def Title(text):
   print("-" * len(text))
   print(text)
   print("-" * len(text))
 
-def Open(file, clients):
+
+def Open(file, clients, Function):
   with open(file) as infile:
     for line in infile:
       # Split the line based on the commas
@@ -35,7 +37,7 @@ def Open(file, clients):
       email = s[4]
 
       # Create Client object
-      clt = Client(client_id, f_name, l_name, phone, email)
+      clt = Function(client_id, f_name, l_name, phone, email)
       # Add the client object to list
       clients.append(clt)
   return clients
