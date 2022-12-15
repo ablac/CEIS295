@@ -7,7 +7,7 @@ import time, random, os
 from datetime import date
 from Functions.Client import ClientP6 as Client
 from Functions.Search import BinarySearchTree as BST
-from Functions.Default import Continue, TTime
+from Functions.Default import Continue, TTime, Title
 
 
 def main():
@@ -42,7 +42,7 @@ def main():
   os.system('clear')
 
   answer = input(f"Display Records (N/y) (Default {print_records})? "
-                 or answer)
+                 or "N")
   if answer.lower() == "y":
     print_records = True
   os.system('clear')
@@ -68,6 +68,7 @@ def main():
       l_name = s[2]
       phone = s[3]
       email = s[4]
+      
       # Create Client object
       clt = Client(client_id, f_name, l_name, phone, email)
       # Add the client object to list
@@ -85,9 +86,7 @@ def main():
   # Scenario 1: Printer Queue/Call Queue/Service Queue #
   # -------------------------------------------------- #
 
-  print("-" * len(sec_title[0]))
-  print(sec_title[0])
-  print("-" * len(sec_title[0]))
+  Title(sec_title[0])
 
   # How long does it take to add client records to BST
   start_time = time.time()
@@ -113,9 +112,7 @@ def main():
   # Scenario 2: Customer Service Center #
   # ----------------------------------- #
 
-  print("-" * len(sec_title[1]))
-  print(sec_title[1])
-  print("-" * len(sec_title[1]))
+  Title(sec_title[1])
 
   # Add clients to BinarySearchTree
   for i in range(num_records):
@@ -146,9 +143,7 @@ def main():
   # Scenario 3: Add/Display/Delete Random Records #
   # --------------------------------------------- #
 
-  print("-" * len(sec_title[2]))
-  print(sec_title[2])
-  print("-" * len(sec_title[2]))
+  Title(sec_title[2])
 
   # Add clients to BinarySearchTree
   for i in range(num_records):

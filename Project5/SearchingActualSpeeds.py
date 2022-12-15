@@ -6,7 +6,7 @@
 from Functions.Sort import QuickSort
 from Functions.Search import LinearSearch, BinarySearch
 from Functions.Client import Client
-from Functions.Default import Continue, TTime
+from Functions.Default import Continue, TTime, Title
 from datetime import date
 import time, os, random  # Used to time code executions
 
@@ -93,9 +93,8 @@ def main():
   num_records = len(clients)
   end_record = start_record + num_records
   S1 = f"-Scenario: Searching for {search} random records within {str(num_records)} records"
-  print("-" * len(S1))
-  print(S1)
-  print("-" * len(S1))
+  
+  Title(S1)
 
   Continue()
 
